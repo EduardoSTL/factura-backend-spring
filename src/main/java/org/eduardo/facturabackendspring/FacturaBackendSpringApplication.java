@@ -9,5 +9,4 @@ public class FacturaBackendSpringApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FacturaBackendSpringApplication.class, args);
 	}
-
 }
