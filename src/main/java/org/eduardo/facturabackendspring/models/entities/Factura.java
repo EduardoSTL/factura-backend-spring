@@ -1,5 +1,6 @@
 package org.eduardo.facturabackendspring.models.entities;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +18,7 @@ public class Factura {
     private Long id;
 
     @Column(name = "direccion_envio")
+    @Nullable
     private String dirEnv;
 
 }

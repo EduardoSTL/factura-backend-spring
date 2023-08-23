@@ -1,6 +1,8 @@
 package org.eduardo.facturabackendspring.models.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,14 +17,22 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false, length = 60)
     private String nombre;
+
     @Column(nullable = false, length = 60)
     private String apellido;
+
     @Column(nullable = false, unique = true, length = 10)
+    @NotEmpty
+    @NotNull
     private String dui;
+
     @Column(name = "direccion")
+    @NotNull
     private String dir;
+
     @Column(name = "telefono")
     private Integer tel;
     @Column(name = "correo")
