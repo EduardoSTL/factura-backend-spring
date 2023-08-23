@@ -21,4 +21,13 @@ public class Factura {
     @Nullable
     private String dirEnv;
 
+    @ManyToOne(
+            optional = false,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            }
+    )
+    @JoinColumn(name = "cliente_id", foreignKey = @ForeignKey(name = "FK_CLIENTE_ID"))
+    private Cliente cliente;
 }

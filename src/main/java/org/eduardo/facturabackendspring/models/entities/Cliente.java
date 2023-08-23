@@ -7,12 +7,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+import java.util.Set;
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "personas")
-public class Cliente {
+public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,4 +40,10 @@ public class Cliente {
     private Integer tel;
     @Column(name = "correo")
     private String email;
+
+    @OneToMany(
+            mappedBy = "factura",
+            fetch = FetchType.LAZY
+    )
+    private Set<Factura> facturas;
 }
