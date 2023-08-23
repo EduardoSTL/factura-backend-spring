@@ -1,6 +1,7 @@
 package org.eduardo.facturabackendspring.models.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,8 @@ public class Producto {
     private Long id;
     @Column(name = "nombre_producto")
     private String nombre;
+
+    @Positive(message = "El valor no puede ser negativo")
     @Column(name = "precio_unitario")
     private Float precioUnit;
-
 }
